@@ -3,10 +3,7 @@ package com.quocanhit.moneymanagement.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.quocanhit.moneymanagement.Enum.EUserStatus;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -26,7 +23,7 @@ public class ProfileEntity implements Serializable {
     @Column(name = "id", updatable = false, length = 40)
     private String id;
 
-    @Column(name = "fullName")
+    @Column(name = "fullname")
     private String fullName;
 
     @Column(name = "email", unique = true)
@@ -45,7 +42,7 @@ public class ProfileEntity implements Serializable {
     @Column(name = "image_url")
     private String imageUrl;
 
-    @Column(name = "isActive")
+    @Column(name = "is_active")
     private EUserStatus isActive;
 
     @Column(name = "activation_token")

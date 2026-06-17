@@ -3,8 +3,11 @@ package com.quocanhit.moneymanagement.service.implement;
 import com.quocanhit.moneymanagement.dto.ProfileDTO;
 import com.quocanhit.moneymanagement.entity.ProfileEntity;
 import com.quocanhit.moneymanagement.repository.IProfileRepository;
+import com.quocanhit.moneymanagement.service.IEmailService;
 import com.quocanhit.moneymanagement.service.IProfileService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -13,8 +16,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ProfileService implements IProfileService {
 
-    private final IProfileRepository _profileRepository;
-
+    private final IProfileRepository profileRepository;
+    private final IEmailService emailService;
 
     @Override
     public ProfileDTO registerProfile(ProfileDTO profileDTO) {
@@ -22,8 +25,13 @@ public class ProfileService implements IProfileService {
         profileEntity.setActivationToken(UUID.randomUUID().toString());
         profileEntity.setCreatedBy(profileDTO.getFullName());
         profileEntity.setUpdatedBy(profileDTO.getFullName());
+        profileEntity = profileRepository.save(profileEntity);
 
-        profileEntity = _profileRepository.save(profileEntity);
+        // send activation email
+        String activationLink = "http://localhost:8080/api/v1.0/active?token=" + profileEntity.getActivationToken();
+        String subject = "Activation your Money Management Account";
+        String body = "Click on the following link to activation your account: " + activationLink;
+        emailService.sendEmail(profileEntity.getEmail(), subject, body);
 
         return toDTO(profileEntity);
     }
