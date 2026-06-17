@@ -1,6 +1,6 @@
 package com.quocanhit.moneymanagement.Enum;
 
-public enum EUserStatus {
+public enum EProfileStatus {
     ACTIVE,
     INACTIVE,
     BLOCKED,

@@ -12,4 +12,6 @@ public interface IProfileRepository extends JpaRepository<ProfileEntity, String>
     // select * from tbl_profile where email = ?
     Optional<ProfileEntity> findByEmail(String email);
 
+    // select * from tbl_profile where activation_token = ?
+    Optional<ProfileEntity> findByActivationToken(String activationToken);
 }

@@ -1,7 +1,7 @@
 package com.quocanhit.moneymanagement.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.quocanhit.moneymanagement.Enum.EUserStatus;
+import com.quocanhit.moneymanagement.Enum.EProfileStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -35,15 +35,16 @@ public class ProfileEntity implements Serializable {
     @Column(name = "address")
     private String address;
 
-    @JsonIgnore
     @Column(name = "password")
+    @JsonIgnore
     private String password;
 
     @Column(name = "image_url")
     private String imageUrl;
 
     @Column(name = "is_active")
-    private EUserStatus isActive;
+    @Enumerated(EnumType.STRING)
+    private EProfileStatus isActive;
 
     @Column(name = "activation_token")
     private String activationToken;
@@ -65,7 +66,7 @@ public class ProfileEntity implements Serializable {
     @PrePersist
     public void prePersist() {
         if (this.isActive == null) {
-            isActive = EUserStatus.INACTIVE;
+            isActive = EProfileStatus.INACTIVE;
         }
     }
 }

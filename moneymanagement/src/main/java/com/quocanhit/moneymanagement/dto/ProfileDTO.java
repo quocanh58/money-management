@@ -1,5 +1,6 @@
 package com.quocanhit.moneymanagement.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,6 +20,7 @@ public class ProfileDTO {
     private String email;
     private String phone;
     private String address;
+    @JsonIgnore
     private String password;
     private String imageUrl;
     private LocalDateTime createdAt;

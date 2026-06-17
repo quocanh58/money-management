@@ -6,9 +6,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface IProfileService {
-    public ProfileDTO registerProfile(ProfileDTO profileDTO);
+    ProfileDTO registerProfile(ProfileDTO profileDTO);
 
-    public ProfileEntity toEntity(ProfileDTO profileDTO);
+    ProfileEntity toEntity(ProfileDTO profileDTO);
 
-    public ProfileDTO toDTO(ProfileEntity profileEntity) ;
+    ProfileDTO toDTO(ProfileEntity profileEntity);
+
+    boolean activationProfile(String activationToken);
 }

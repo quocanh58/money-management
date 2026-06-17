@@ -25,7 +25,7 @@ public class EmailService implements IEmailService {
             message.setSubject(subject);
             message.setText(body);
             mailSender.send(message);
-            System.out.println("Send mail to: " + to + "successfully.");
+            System.out.println("Send mail to: " + to + " successfully.");
         } catch (Exception ex) {
             throw new RuntimeException(ex.getMessage());
         }
