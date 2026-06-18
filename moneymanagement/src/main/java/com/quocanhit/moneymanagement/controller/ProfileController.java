@@ -1,8 +1,8 @@
 package com.quocanhit.moneymanagement.controller;
 
 import com.quocanhit.moneymanagement.constant.EndpointConst;
-import com.quocanhit.moneymanagement.dto.AuthDTO;
-import com.quocanhit.moneymanagement.dto.ProfileDTO;
+import com.quocanhit.moneymanagement.dto.auth.AuthDTO;
+import com.quocanhit.moneymanagement.dto.profile.ProfileDTO;
 import com.quocanhit.moneymanagement.payload.response.BaseResponse;
 import com.quocanhit.moneymanagement.service.implement.ProfileService;
 import lombok.RequiredArgsConstructor;

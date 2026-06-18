@@ -47,6 +47,7 @@ public class ProfileEntity implements Serializable {
     private EProfileStatus isActive;
 
     @Column(name = "activation_token")
+    @JsonIgnore
     private String activationToken;
 
     @Column(name = "created_at", updatable = false)

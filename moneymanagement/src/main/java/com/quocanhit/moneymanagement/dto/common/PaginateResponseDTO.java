@@ -1,4 +1,4 @@
-package com.quocanhit.moneymanagement.dto;
+package com.quocanhit.moneymanagement.dto.common;
 
 import lombok.*;
 

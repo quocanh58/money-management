@@ -1,7 +1,7 @@
 package com.quocanhit.moneymanagement.config;
 
 import com.quocanhit.moneymanagement.filter.JwtAuthenticationFilter;
-import com.quocanhit.moneymanagement.dto.JwtPropertiesDTO;
+import com.quocanhit.moneymanagement.dto.auth.JwtPropertiesDTO;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

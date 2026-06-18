@@ -1,4 +1,4 @@
-package com.quocanhit.moneymanagement.dto;
+package com.quocanhit.moneymanagement.dto.auth;
 
 import lombok.Getter;
 import lombok.Setter;

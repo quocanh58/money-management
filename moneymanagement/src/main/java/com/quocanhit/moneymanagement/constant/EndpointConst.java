@@ -14,4 +14,7 @@ public class EndpointConst {
     public static final String PROFILE = BASE_URL_ENDPOINT + "/profile";
     public static final String PROFILE_BY_ID = BASE_URL_ENDPOINT + "/profile/{id}";
 
+    // Endpoint cho Category
+    public static final String CATEGORY = BASE_URL_ENDPOINT + "/category";
+    public static final String CATEGORIES = BASE_URL_ENDPOINT + "/categories";
 }

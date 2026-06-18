@@ -1,7 +1,7 @@
 package com.quocanhit.moneymanagement.service;
 
-import com.quocanhit.moneymanagement.dto.AuthDTO;
-import com.quocanhit.moneymanagement.dto.ProfileDTO;
+import com.quocanhit.moneymanagement.dto.auth.AuthDTO;
+import com.quocanhit.moneymanagement.dto.profile.ProfileDTO;
 import com.quocanhit.moneymanagement.entity.ProfileEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

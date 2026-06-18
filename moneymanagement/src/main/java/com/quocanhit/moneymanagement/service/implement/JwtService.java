@@ -1,6 +1,6 @@
 package com.quocanhit.moneymanagement.service.implement;
 
-import com.quocanhit.moneymanagement.dto.JwtPropertiesDTO;
+import com.quocanhit.moneymanagement.dto.auth.JwtPropertiesDTO;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;

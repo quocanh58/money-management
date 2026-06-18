@@ -1,7 +1,7 @@
 package com.quocanhit.moneymanagement.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.quocanhit.moneymanagement.payload.response.AuthResponse;
+import com.quocanhit.moneymanagement.payload.response.auth.AuthResponse;
 import com.quocanhit.moneymanagement.service.implement.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

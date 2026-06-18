@@ -1,4 +1,4 @@
-package com.quocanhit.moneymanagement.payload.response;
+package com.quocanhit.moneymanagement.payload.response.auth;
 
 import lombok.*;
 import org.springframework.http.HttpStatus;

@@ -1,8 +1,8 @@
 package com.quocanhit.moneymanagement.payload.response;
 
-import com.quocanhit.moneymanagement.dto.Paginate;
-import com.quocanhit.moneymanagement.dto.PaginateResponseDTO;
-import com.quocanhit.moneymanagement.dto.ResponseDTO;
+import com.quocanhit.moneymanagement.dto.common.Paginate;
+import com.quocanhit.moneymanagement.dto.common.PaginateResponseDTO;
+import com.quocanhit.moneymanagement.dto.common.ResponseDTO;
 import com.quocanhit.moneymanagement.util.LoggerUtil;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;

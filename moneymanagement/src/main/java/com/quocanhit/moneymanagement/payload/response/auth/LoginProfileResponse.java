@@ -1,4 +1,4 @@
-package com.quocanhit.moneymanagement.payload.response;
+package com.quocanhit.moneymanagement.payload.response.auth;
 
 import com.quocanhit.moneymanagement.Enum.EProfileStatus;
 import com.quocanhit.moneymanagement.entity.ProfileEntity;

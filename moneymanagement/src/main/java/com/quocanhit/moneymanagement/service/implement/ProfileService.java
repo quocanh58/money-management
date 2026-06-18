@@ -2,11 +2,11 @@ package com.quocanhit.moneymanagement.service.implement;
 
 import com.quocanhit.moneymanagement.Enum.EProfileStatus;
 import com.quocanhit.moneymanagement.constant.EndpointConst;
-import com.quocanhit.moneymanagement.dto.AuthDTO;
-import com.quocanhit.moneymanagement.dto.ProfileDTO;
+import com.quocanhit.moneymanagement.dto.auth.AuthDTO;
+import com.quocanhit.moneymanagement.dto.profile.ProfileDTO;
 import com.quocanhit.moneymanagement.entity.ProfileEntity;
 import com.quocanhit.moneymanagement.payload.response.BaseResponse;
-import com.quocanhit.moneymanagement.payload.response.LoginProfileResponse;
+import com.quocanhit.moneymanagement.payload.response.auth.LoginProfileResponse;
 import com.quocanhit.moneymanagement.repository.IProfileRepository;
 import com.quocanhit.moneymanagement.service.IEmailService;
 import com.quocanhit.moneymanagement.service.IProfileService;
