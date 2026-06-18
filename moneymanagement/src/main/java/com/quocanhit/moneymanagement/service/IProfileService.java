@@ -1,7 +1,11 @@
 package com.quocanhit.moneymanagement.service;
 
+import com.quocanhit.moneymanagement.dto.AuthDTO;
 import com.quocanhit.moneymanagement.dto.ProfileDTO;
 import com.quocanhit.moneymanagement.entity.ProfileEntity;
+import com.quocanhit.moneymanagement.payload.response.LoginProfileResponse;
+import com.quocanhit.moneymanagement.payload.response.AuthResponse;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,4 +17,14 @@ public interface IProfileService {
     ProfileDTO toDTO(ProfileEntity profileEntity);
 
     boolean activationProfile(String activationToken);
+
+    boolean isActiveProfile(String email);
+
+    ProfileEntity getProfileCurrent();
+
+    ResponseEntity<?> getProfileById(String id);
+
+    ProfileDTO getPublishProfile(String email);
+
+    ResponseEntity<?> authentication(AuthDTO authDTO);
 }
