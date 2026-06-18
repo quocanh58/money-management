@@ -11,7 +11,6 @@ import com.quocanhit.moneymanagement.repository.IProfileRepository;
 import com.quocanhit.moneymanagement.service.IEmailService;
 import com.quocanhit.moneymanagement.service.IProfileService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -47,7 +46,7 @@ public class ProfileService implements IProfileService {
         profileEntity.setUpdatedBy(profileDTO.getFullName());
         profileEntity = profileRepository.save(profileEntity);
 
-        // send activation email
+        // Send activation email
         String activationLink = EndpointConst.BASE_URL_ACTIVATION + profileEntity.getActivationToken();
         String subject = "Activation your Money Management Account";
         String body = "Click on the following link to activation your account: " + activationLink;

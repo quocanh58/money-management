@@ -3,8 +3,6 @@ package com.quocanhit.moneymanagement.service;
 import com.quocanhit.moneymanagement.dto.AuthDTO;
 import com.quocanhit.moneymanagement.dto.ProfileDTO;
 import com.quocanhit.moneymanagement.entity.ProfileEntity;
-import com.quocanhit.moneymanagement.payload.response.LoginProfileResponse;
-import com.quocanhit.moneymanagement.payload.response.AuthResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 

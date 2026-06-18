@@ -3,10 +3,7 @@ package com.quocanhit.moneymanagement.controller;
 import com.quocanhit.moneymanagement.constant.EndpointConst;
 import com.quocanhit.moneymanagement.dto.AuthDTO;
 import com.quocanhit.moneymanagement.dto.ProfileDTO;
-import com.quocanhit.moneymanagement.entity.ProfileEntity;
 import com.quocanhit.moneymanagement.payload.response.BaseResponse;
-import com.quocanhit.moneymanagement.payload.response.LoginProfileResponse;
-import com.quocanhit.moneymanagement.payload.response.AuthResponse;
 import com.quocanhit.moneymanagement.service.implement.ProfileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,8 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
-import java.util.Objects;
 
 @RestController
 @RequiredArgsConstructor
@@ -60,7 +55,7 @@ public class ProfileController {
         try {
             return profileService.getProfileById(id);
         } catch (Exception e) {
-            return BaseResponse.error("Lỗi hệ thống", HttpStatus.BAD_REQUEST);
+            return BaseResponse.error(e.getMessage());
         }
     }
 }

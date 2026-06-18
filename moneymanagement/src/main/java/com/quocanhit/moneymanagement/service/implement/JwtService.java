@@ -23,10 +23,8 @@ public class JwtService {
     // Validate token
     public void validateToken(final String token) {
         try {
-            // Loại bỏ "Bearer " từ token
             String jwt = token.startsWith("Bearer ") ? token.substring(7) : token;
 
-//            Jwts.parserBuilder().setSigningKey(getSignKey()).build().parseClaimsJws(jwt);
             Jwts.parser()
                     .verifyWith((javax.crypto.SecretKey) getSignKey())
                     .build()
@@ -69,13 +67,6 @@ public class JwtService {
 
     // Create token
     public String createToken(Map<String, Object> claims, String userName, long expirationTime) {
-//        return Jwts.builder()
-//                .setClaims(claims)
-//                .setSubject(userName)
-//                .setIssuedAt(new Date(System.currentTimeMillis()))
-//                .setExpiration(new Date(System.currentTimeMillis() + expirationTime))
-//                .signWith(getSignKey(), SignatureAlgorithm.HS256)
-//                .compact();
         return Jwts.builder()
                 .claims(claims)
                 .subject(userName)

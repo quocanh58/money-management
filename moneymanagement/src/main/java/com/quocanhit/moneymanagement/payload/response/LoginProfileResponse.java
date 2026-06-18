@@ -1,6 +1,5 @@
 package com.quocanhit.moneymanagement.payload.response;
 
-
 import com.quocanhit.moneymanagement.Enum.EProfileStatus;
 import com.quocanhit.moneymanagement.entity.ProfileEntity;
 import jakarta.persistence.EnumType;
