@@ -39,6 +39,7 @@ public class JwtService {
         Map<String, Object> claims = new HashMap<>();
         claims.put("username", userName);
         claims.put("userId", userId);
+        claims.put("type", "ACCESS");
         return createToken(claims, userName, 1000 * 60 * 30); // Expire in 30 minutes
     }
 
@@ -57,7 +58,39 @@ public class JwtService {
         Map<String, Object> claims = new HashMap<>();
         claims.put("username", userName);
         claims.put("userId", userId);
+        claims.put("type", "REFRESH");
         return createToken(claims, userName, 1000 * 60 * 60 * 24 * 7); // Expire in 7 days
+    }
+
+    // Generate new access token from refresh token
+    public String refreshAccessToken(String refreshToken) {
+        if (isTokenExpired(refreshToken)) {
+            throw new RuntimeException("Refresh token has expired");
+        }
+
+        Claims claims = extractClaims(refreshToken);
+
+        String type = claims.get("type", String.class);
+        if (!"REFRESH".equals(type)) {
+            throw new RuntimeException("Invalid refresh token");
+        }
+
+        String username = claims.get("username", String.class);
+        String userId = claims.get("userId", String.class);
+
+        return generateToken(username, userId);
+    }
+
+    public Map<String, Object> getUserNameByToken(String token) {
+        Claims claims = extractClaims(token);
+        String type = claims.get("type", String.class);
+        String username = claims.get("username", String.class);
+        String userId = claims.get("userId", String.class);
+        Map<String, Object> data = new HashMap<>();
+        data.put("userId", userId);
+        data.put("username", username);
+        data.put("type", type);
+        return data;
     }
 
     public Date getExpirationDateFromToken(String token) {

@@ -25,5 +25,5 @@ public class CategoryDTO {
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDateTime updatedAt;
     private String updatedBy;
-    private ProfileEntity profile;
+    private String profileId;
 }

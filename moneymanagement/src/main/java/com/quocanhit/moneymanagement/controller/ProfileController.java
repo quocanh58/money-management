@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 
 @RestController
 @RequiredArgsConstructor
@@ -48,6 +50,11 @@ public class ProfileController {
         } catch (Exception e) {
             return BaseResponse.error(e.getMessage());
         }
+    }
+
+    @PostMapping(EndpointConst.REFRESH_TOKEN)
+    public ResponseEntity<?> refreshToken(@RequestParam String refreshToken) {
+        return profileService.refreshAccessToken(refreshToken);
     }
 
     @GetMapping(EndpointConst.PROFILE_BY_ID)

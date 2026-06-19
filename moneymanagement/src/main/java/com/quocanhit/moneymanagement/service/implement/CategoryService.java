@@ -11,6 +11,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 @Service
 @RequiredArgsConstructor
 public class CategoryService implements ICategoryService {
@@ -39,13 +43,17 @@ public class CategoryService implements ICategoryService {
     @Override
     public ResponseEntity<?> getListCategoryByProfileId() {
         var profile = profileService.getProfileCurrent();
-        var categories = categoryRepository.findCategoryEntitiesByProfileId(profile.getId());
+        List<CategoryDTO> response = categoryRepository
+                .findCategoryEntitiesByProfileId(profile.getId())
+                .stream()
+                .map(this::toDTO)
+                .toList();
 
-        if (categories.isEmpty()) {
+        if (response.isEmpty()) {
             return BaseResponse.error("Category is empty", HttpStatus.NOT_FOUND);
         }
 
-        return BaseResponse.success("Get categories successfully", categories);
+        return BaseResponse.success("Get categories successfully", response);
     }
 
     // Helper
@@ -73,7 +81,7 @@ public class CategoryService implements ICategoryService {
                 .createdBy(categoryEntity.getCreatedBy())
                 .updatedAt(categoryEntity.getUpdatedAt())
                 .updatedBy(categoryEntity.getUpdatedBy())
-                .profile(categoryEntity.getProfile() != null ? categoryEntity.getProfile() : null)
+                .profileId(categoryEntity.getProfile() != null ? categoryEntity.getProfile().getId() : null)
                 .build();
     }
 }

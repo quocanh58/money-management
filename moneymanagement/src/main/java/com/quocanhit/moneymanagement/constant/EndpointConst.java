@@ -9,6 +9,7 @@ public class EndpointConst {
     public static final String REGISTER = BASE_URL_ENDPOINT + "/register";
     public static final String ACTIVATE_TOKEN = BASE_URL_ENDPOINT + "/active";
     public static final String LOGIN = BASE_URL_ENDPOINT + "/login";
+    public static final String REFRESH_TOKEN = BASE_URL_ENDPOINT + "/refresh-token";
 
     // Endpoint cho Profile
     public static final String PROFILE = BASE_URL_ENDPOINT + "/profile";

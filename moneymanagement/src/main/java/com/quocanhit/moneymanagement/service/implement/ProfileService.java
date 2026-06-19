@@ -65,6 +65,7 @@ public class ProfileService implements IProfileService {
                 .phone(profileDTO.getPhone())
                 .address(profileDTO.getAddress())
                 .imageUrl(profileDTO.getImageUrl())
+                .isActive(profileDTO.getStatus())
                 .createdAt(profileDTO.getCreatedAt())
                 .createdBy(profileDTO.getCreatedBy())
                 .updatedAt(profileDTO.getUpdatedAt())
@@ -123,6 +124,24 @@ public class ProfileService implements IProfileService {
             return BaseResponse.error("Profile cannot found with ID: " + id, HttpStatus.NOT_FOUND);
         }
         return BaseResponse.success("Successfully", toDTO(profile));
+    }
+
+    public ResponseEntity<?> refreshAccessToken(String refreshToken) {
+        try {
+            String accessToken = jwtService.refreshAccessToken(refreshToken);
+            Date expirationDate = jwtService.getExpirationDateFromToken(accessToken);
+            LocalDateTime isoExpirationDate = expirationDate.toInstant()
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDateTime();
+
+            Map<String, Object> profileData = jwtService.getUserNameByToken(accessToken);
+            ProfileEntity profile = profileRepository.findProfileEntitiesById(profileData.get("userId").toString());
+            LoginProfileResponse response = new LoginProfileResponse(profile, accessToken, refreshToken, isoExpirationDate.toString());
+
+            return BaseResponse.success("Refresh token successfully", response);
+        } catch (Exception e) {
+            return BaseResponse.error(e.getMessage());
+        }
     }
 
     @Override
